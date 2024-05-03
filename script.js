@@ -13,8 +13,9 @@ let matchedPairs = 0;
 
 // Function --- flip a card
 function flipCard(card) {
+    const index = [...document.querySelectorAll('.card')].indexOf(card);
     if (flippedCards.length < 2 && !flippedCards.includes(card)) {
-        card.textContent = cards[parseInt(card.id) - 1];
+        card.textContent = cards[index];
         flippedCards.push(card);
 
         if (flippedCards.length === 2) {
@@ -45,6 +46,6 @@ function checkMatch() {
 }
 
 // Event --- listen to cards
-document.querySelector('.card').forEach(card => {
+document.querySelectorAll('.card').forEach(card => {
     card.addEventListener('click', () => flipCard(card));
 });
