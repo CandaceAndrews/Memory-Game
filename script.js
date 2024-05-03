@@ -1,5 +1,5 @@
 // Array of symbols for the cards
-const symbols = ['🍎', '🍌', '🍉', '🍇', '🍒', '🍍', '🍋', '🍓'];
+const symbols = ['🍎', '🍌', '🍉', '🍇', '🍒', '🍍', '🍋', '🍓', '🫐', '🥭'];
 
 // Duplicate the symbols to create pairs
 const cards = [...symbols, ...symbols];
@@ -19,7 +19,7 @@ function flipCard(card) {
         flippedCards.push(card);
 
         if (flippedCards.length === 2) {
-            setTimeout(checkMatch, 1000); //Delay for better user experience
+            setTimeout(checkMatch, 500); //Delay for better user experience
         }
     }
 }

@@ -1,6 +1,6 @@
 .memory-game {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* Adjust based on the number of cards */
+    grid-template-columns: repeat(6, 2fr); /* Adjust based on the number of cards */
     gap: 10px;
 }
 
