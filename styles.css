@@ -1,7 +1,19 @@
+body {
+    background-color: black;
+    display: flex;
+    justify-content: center; /* Center the grid container horizontally */
+    align-items: center; /* Center the grid container vertically */
+    height: 100vh; /* Use the full viewport height */
+}
+
 .memory-game {
     display: grid;
-    grid-template-columns: repeat(6, 2fr); /* Adjust based on the number of cards */
+    grid-template-columns: repeat(6, 1fr); /* 6 columns */
+    grid-template-rows: repeat(3, 1fr); /* 3 rows */
     gap: 10px;
+    justify-content: center;
+    align-items: center;
+    width: 800px; /* Fixed width for the grid container */
 }
 
 .card {
@@ -14,11 +26,10 @@
 }
 
 .card:hover {
-    background-color: #ddd;
+    background-color: #dbc7c7;
 }
 
 .card.matched {
     background-color: lightgreen;
     pointer-events: none; /* Disable clicking on matched cards */
 }
-
