@@ -1,8 +1,18 @@
 // Array of symbols for the cards
-const symbols = ['🍎', '🍌', '🍉', '🍇', '🍒', '🍓', '🫐', '🥭', '🥝'];
+// const symbols = ['🍎', '🍌', '🍉', '🍇', '🍒', '🍓', '🫐', '🥭', '🥝'];
+const characters = ['pictures/alyssa.jpeg',
+                    'pictures/bob.jpeg',
+                    'pictures/cindy.jpeg',
+                    'pictures/david.jpeg',
+                    'pictures/george.jpeg',
+                    'pictures/jim.jpeg',
+                    'pictures/kevin.jpeg',
+                    'pictures/mark.jpeg',
+                    'pictures/yoko.jpeg'
+];
 
 // Duplicate the symbols to create pairs
-const cards = [...symbols, ...symbols];
+const cards = [...characters, ...characters];
 
 // Shuffle the cards
 cards.sort(() => Math.random() - 0.5);
@@ -15,7 +25,8 @@ let matchedPairs = 0;
 function flipCard(card) {
     const index = [...document.querySelectorAll('.card')].indexOf(card);
     if (flippedCards.length < 2 && !flippedCards.includes(card)) {
-        card.textContent = cards[index];
+        // card.textContent = cards[index];
+        card.style.backgroundImage = `url(${cards[index]})`
         flippedCards.push(card);
 
         if (flippedCards.length === 2) {
@@ -27,20 +38,20 @@ function flipCard(card) {
 // Function --- check if flipped cards match
 function checkMatch() {
     const [card1, card2] = flippedCards;
-    if (card1.textContent === card2.textContent) {
+    if (card1.style.backgroundImage === card2.style.backgroundImage) {
         card1.classList.add('matched');
         card2.classList.add('matched');
         flippedCards = [];
         matchedPairs++;
 
         // Check if all pairs ae matched
-        if (matchedPairs === symbols.length) {
+        if (matchedPairs === characters.length) {
             alert('Congratulations! You won the game!');
         }
     } else {
         setTimeout(() => {
-            card1.textContent = '';
-            card2.textContent = '';
+            card1.style.backgroundImage = '';
+            card2.style.backgroundImage = '';
             flippedCards = [];
         }, 700); // Delay for card flipping animation
     }
